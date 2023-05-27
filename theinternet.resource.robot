@@ -101,6 +101,11 @@ ${Opção_hovers}                         //*[@id="content"]/ul/li[25]/a
 ${Imagem_hovers}                        //*[@id="content"]/div/div[1]/img
 ${Nome_hovers}                          //*[@id="content"]/div/div[1]/div/h5
 ${Ver_perfil_hovers}                    //*[@id="content"]/div/div[1]/div/a
+${Opção_infinite_scroll}                //*[@id="content"]/ul/li[26]/a
+${Título_texto_infinite_scroll}         //*[@id="content"]/div/h3
+${Texto_infinite_scroll}                //*[@id="content"]/div/div
+${Opção_inputs}                         //*[@id="content"]/ul/li[27]/a
+${Search_números_inputs}                //*[@id="content"]/div/div/div/input
 
 *** Keywords ***
 Abrir o navegador
@@ -540,3 +545,24 @@ E ver perfil
 Então clico na opção de ver perfil
     Wait Until Element Is Visible    locator=xpath:${Ver_perfil_hovers} 
     Click Link                       locator=xpath:${Ver_perfil_hovers} 
+
+Quando aperta na opção "Infinite Scroll"
+    Wait Until Element Is Visible    locator=xpath:${Opção_infinite_scroll} 
+    Click Link                       locator=xpath:${Opção_infinite_scroll}
+
+Então deve conter o título
+    Wait Until Element Is Visible    locator=xpath:${Título_texto_infinite_scroll} 
+
+E deve aparecer um texto infinito
+    Wait Until Element Is Visible    locator=xpath:${Texto_infinite_scroll}  
+
+Quando aperta na opção "Inputs"
+    Wait Until Element Is Visible    locator=xpath:${Opção_inputs}  
+    Click Link                       locator=xpath:${Opção_inputs}  
+
+E aparece a opção de colocar números
+    Wait Until Element Is Visible    locator=xpath:${Search_números_inputs}
+
+Então colocar quantos números quiser   
+    Input Password    ${Search_números_inputs}    l23
+    

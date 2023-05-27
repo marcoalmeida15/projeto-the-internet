@@ -223,3 +223,16 @@ Cenário 31 - Entrando na Hovers
     E ver perfil
     Então clico na opção de ver perfil
     
+Cenário 32 - Entrando na Infinite Scroll
+    Dado que o usuário está na home
+    Quando aperta na opção "Infinite Scroll"
+    Então deve conter o título
+    E deve aparecer um texto infinito
+
+Cenário 33 - Entrando no inputs e colocando números
+    Dado que o usuário está na home
+    Quando aperta na opção "Inputs"
+    E aparece a opção de colocar números
+    Então colocar quantos números quiser
+
+Cenário 34 - Entrando JQueryUI-Menus
