@@ -320,3 +320,48 @@ Cenário 46 - Entrando na Shifting Content e no exemplo 1
     Então clica no "click here"
     E deve sumir 1 elemento em alguma recarregada de página
     
+Cenário 47 - Entrando na Shifting Content e no exemplo 2
+    Dado que o usuário está na home
+    Quando aperta na opção "Shifting Conten"
+    E clica no exemplo 2
+    Então clica no "click here"
+    E a imagem troca de lugar alguma recarregada de página
+
+Cenário 48 - Entrando na Shifting Content e no exemplo 3
+    Dado que o usuário está na home
+    Quando aperta na opção "Shifting Conten"
+    E clica no exemplo 3
+    Então deve aparecer um texto fora de ordem
+    E o texto mudar de ordem quando a página recarrega
+
+Cenário 49 - Entrando na Slow Resources
+    Dado que o usuário está na home
+    Quando aperta na opção "Slow Resources"
+    Então deve retornando um texto pequeno
+
+Cenário 50 - Entrando na Sortable Data Tables 
+    Dado que o usuário está na home
+    Quando aperta na opção "Sortable Data Tables"
+    Então deve conter o exemplo 1
+    E o exemplo 2
+
+Cenário 51 - Entrando na Status Codes
+    Dado que o usuário está na home
+    Quando aperta na opção "Status Codes"
+    Então clica na opção "200"
+    E na opção "301"
+    E na opção "404"
+    E na opção "500"
+
+Cenário 52 - Entrando na "Typos"
+    Dado que o usuário está na home
+    Quando aperta na opção "Typos"
+    Então deve conter um mini texto
+    E erros de digitação quando recarrega a página
+
+# Cenário 53 - Entrando na WYSIWYG Editor e colocando letra grande e negrita
+#     Dado que o usuário está na home
+#     Quando aperta na opção "WYSIWYG Editor"
+#     Então clica na flechinha paragraph
+#     E na headings    
+#     E na heading 1

@@ -150,6 +150,24 @@ ${Texto1_shadow_dom}                              //*[@id="content"]/my-paragrap
 ${Texto2_shadow_dom}                              //*[@id="content"]/my-paragraph[2]/ul/li[2]
 ${Opção_shifting_content}                         //*[@id="content"]/ul/li[39]/a
 ${Exemplo_1_shifting_content}                     //*[@id="content"]/div/a[1]
+${Lista_shifting_content}                         //*[@id="content"]
+${Click_here_shifting_content}                    //*[@id="content"]/div/p[4]/a
+${Exemplo_2_shifting_content}                     //*[@id="content"]/div/a[2]
+${Imagen_shiftinf_content}                        //*[@id="content"]/div/img
+${Exemplo_3_shifting_content}                     //*[@id="content"]/div/a[3]
+${Texto_shifting_content}                         //*[@id="content"]/div/div/div
+${Opção_slow_resources}                           //*[@id="content"]/ul/li[40]/a
+${Texto_slow_resources}                           //*[@id="content"]/div/p
+${Opção_sortable_data_table}                      //*[@id="content"]/ul/li[41]/a
+${Exemplo_1_sortable_data_table}                  //*[@id="table1"]
+${Exemplo_2_sortable_data_table}                  //*[@id="table2"]
+${Opção_status_codes}                             //*[@id="content"]/ul/li[42]/a
+${Opção_typos}                                    //*[@id="content"]/ul/li[43]/a
+${Texto_typos}                                    //*[@id="content"]/div
+${Opção_WYSIWYG_Editor}                           //*[@id="content"]/ul/li[44]/a
+${Paragraph_WYSIWYG_Editor}                       //*[@id="content"]/div/div/div[1]/div[1]/div[2]/div/div[2]/button/span
+${Headings_WYSIWYG_Editor}                        //*[@id="aria-owns_1398106681631685394854149"]/div/div[1]/div/div[1]/div[2]/svg
+${Heading_1_WYSIWYG_Editor}                       //*[@id="aria-owns_1398106681631685394854149"]/div/div[2]/div/div[1]/div[1]/h1
 
 *** Keywords ***
 Abrir o navegador
@@ -778,13 +796,79 @@ E clica no exemplo 1
     Click Link                       locator=xpath:${Exemplo_1_shifting_content}
 
 E deve ser retornada uma lista
-    Wait Until Element Is Visible    locator=xpath:${Opção_shadow_dom}      
-    Click Link                       locator=xpath:${Opção_shadow_dom}
+    Wait Until Element Is Visible    locator=xpath:${Lista_shifting_content}       
 
 Então clica no "click here"
-    Wait Until Element Is Visible    locator=xpath:${Opção_shadow_dom}      
-    Click Link                       locator=xpath:${Opção_shadow_dom}
+    Wait Until Element Is Visible    locator=xpath:${Click_here_shifting_content}     
+    Click Link                       locator=xpath:${Click_here_shifting_content}
 
 E deve sumir 1 elemento em alguma recarregada de página
-    Wait Until Element Is Visible    locator=xpath:${Opção_shadow_dom}      
-    Click Link                       locator=xpath:${Opção_shadow_dom}
+    Reload Page
+    Wait Until Element Is Visible    locator=xpath:${Lista_shifting_content}
+
+E clica no exemplo 2
+    Wait Until Element Is Visible    locator=xpath:${Exemplo_2_shifting_content}     
+    Click Link                       locator=xpath:${Exemplo_2_shifting_content} 
+
+E a imagem troca de lugar alguma recarregada de página
+    Reload Page
+    Page Should Contain Image        locator=xpath:${Imagen_shiftinf_content} 
+
+E clica no exemplo 3
+    Wait Until Element Is Visible    locator=xpath:${Exemplo_3_shifting_content}      
+    Click Link                       locator=xpath:${Exemplo_3_shifting_content} 
+
+Então deve aparecer um texto fora de ordem
+    Wait Until Element Is Visible    locator=xpath:${Texto_shifting_content}     
+
+E o texto mudar de ordem quando a página recarrega
+    Reload Page
+    Wait Until Element Is Visible    locator=xpath:${Texto_shifting_content}     
+
+Quando aperta na opção "Slow Resources"
+    Wait Until Element Is Visible    locator=xpath:${Opção_slow_resources}     
+    Click Link                       locator=xpath:${Opção_slow_resources}
+
+Então deve retornando um texto pequeno
+    Wait Until Element Is Visible    locator=xpath:${Texto_slow_resources}       
+
+Quando aperta na opção "Sortable Data Tables"
+    Wait Until Element Is Visible    locator=xpath:${Opção_sortable_data_table}    
+    Click Link                       locator=xpath:${Opção_sortable_data_table}
+
+Então deve conter o exemplo 1
+    Wait Until Element Is Visible    locator=xpath:${Exemplo_1_sortable_data_table}      
+
+E o exemplo 2
+    Wait Until Element Is Visible    locator=xpath:${Exemplo_2_sortable_data_table}      
+
+Quando aperta na opção "Status Codes"
+    Wait Until Element Is Visible    locator=xpath:${Opção_status_codes}
+    Click Link                       locator=xpath:${Opção_status_codes}
+
+Quando aperta na opção "Typos"
+    Wait Until Element Is Visible    locator=xpath:${Opção_typos}
+    Click Link                       locator=xpath:${Opção_typos}
+
+Então deve conter um mini texto
+    Wait Until Element Is Visible    locator=xpath:${Texto_typos}
+
+E erros de digitação quando recarrega a página
+    Reload Page
+    Wait Until Element Is Visible    locator=xpath:${Texto_typos}
+
+Quando aperta na opção "WYSIWYG Editor"
+    Wait Until Element Is Visible    locator=xpath:${Opção_WYSIWYG_Editor} 
+    Click Link                       locator=xpath:${Opção_WYSIWYG_Editor} 
+
+Então clica na flechinha paragraph
+    Wait Until Element Is Visible    locator=xpath:${Paragraph_WYSIWYG_Editor}
+    Click Element                    locator=xpath:${Paragraph_WYSIWYG_Editor}
+
+E na headings
+    Wait Until Element Is Visible    locator=xpath:${Headings_WYSIWYG_Editor}
+    Click Element                    locator=xpath:${Headings_WYSIWYG_Editor}
+
+E na heading 1
+    Wait Until Element Is Visible    locator=xpath:${Heading_1_WYSIWYG_Editor} 
+    Click Element                    locator=xpath:${Heading_1_WYSIWYG_Editor} 
