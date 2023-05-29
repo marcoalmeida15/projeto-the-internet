@@ -236,3 +236,87 @@ Cenário 33 - Entrando no inputs e colocando números
     Então colocar quantos números quiser
 
 Cenário 34 - Entrando JQueryUI-Menus
+    Dado que o usuário está na home
+    Quando aperta na opção "JQueryUI-Menus"
+    E clica na opção "Enabled"
+    E na opção "Downloads"
+    # Então clica na opção "PDF"
+    # E na opção "CSV"
+    E na opção "Excel"
+    E volta para o menu da JQueryUI-Menus
+
+Cenário 35 - Entrando na JavaScript Alerts e clicando na Alerta JavaScript
+    Dado que o usuário está na home
+    Quando aperta na opção "JavaScript Alerts"
+    Então clica na opção "Click for JS Alert"
+    E deve aparecer uma mensagem de sucesso
+
+Cenário 36 - Entrando na JavaScript Alerts, clicando na Click for JS Confirm e clicando no ok
+    Dado que o usuário está na home
+    Quando aperta na opção "JavaScript Alerts"
+    Então clica na opção "Click for JS Confirm"
+    E deve aparecer uma mensagem "OK"
+
+Cenário 37 - Entrando na JavaScript onload event error e dando erro
+    Dado que o usuário está na home
+    Quando aperta na opção "JavaScript onload event error"
+    Então deve ser redirecionado para uma página com uma frase de erro
+
+Cenário 38 - Entrando e digitando na Key Presses
+    Dado que o usuário está na home
+    Quando aperta na opção "Key Presses"
+    Então digita algo no search
+    E confere se está retornando oque está sendo digitado
+
+Cenário 39 - Entrando na Large & Deep DOM
+    Dado que o usuário está na home
+    Quando aperta na opção "Large & Deep DOM"
+    Então confere se tem "Sem irmãos"
+    E "Irmãos"
+    E "Mesa"
+
+Cenário 40 - Entrando na Multiple Windows
+    Dado que o usuário está na home
+    Quando aperta na opção "Multiple Windows"
+    Então clica no Link
+    E confere se foi para outra janela 
+
+Cenário 41 - Entrando na Nested Frames
+    Dado que o usuário está na home
+    Quando aperta na opção "Nested Frames"
+    Então deve conter o quadrado "Left"
+    E o quadrado "Middle"
+    E o quadrado "Right"
+    E o quadrado "Bottom"
+
+Cenário 42 - Entrando na Notification Messages
+    Dado que o usuário está na home
+    Quando aperta na opção "Notification Messages"
+    Então deve retorna uma mensagem
+    E se clicar no "Click here", deve retornar novamente a mensagem
+
+Cenário 43 - Entrando na Redirect Link
+    Dado que o usuário está na home
+    Quando aperta na opção "Redirect Link"
+    E clica no "here"
+    Então clica na opção "200"
+    E na opção "301"
+    E na opção "404"
+    E na opção "500"
+
+# Cenário 44 - Entrando na Secure File Download
+
+Cenário 45 - Entrando na Shadow DOM
+    Dado que o usuário está na home
+    Quando aperta na opção "Shadow DOM"
+    Então deve conter o texto "Let's have some different text!"
+    E o texto "Let's have some different text! In a list!"
+
+Cenário 46 - Entrando na Shifting Content e no exemplo 1
+    Dado que o usuário está na home
+    Quando aperta na opção "Shifting Conten"
+    E clica no exemplo 1
+    E deve ser retornada uma lista
+    Então clica no "click here"
+    E deve sumir 1 elemento em alguma recarregada de página
+    

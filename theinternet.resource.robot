@@ -5,6 +5,7 @@ Library    OperatingSystem
 *** Variables ***
 ${URL}                                  http://the-internet.herokuapp.com/
 ${URL2}                                 http://elementalselenium.com/
+${URL3}                                 http://the-internet.herokuapp.com/windows/new
 ${Opção_A/B_testing}                    //*[@id="content"]/ul/li[1]/a
 ${texto_A/B_testing}                    //*[@id="content"]/div/h3
 ${Opção_Elemental_Selenium}             //*[@id="page-footer"]/div/div/a
@@ -106,6 +107,49 @@ ${Título_texto_infinite_scroll}         //*[@id="content"]/div/h3
 ${Texto_infinite_scroll}                //*[@id="content"]/div/div
 ${Opção_inputs}                         //*[@id="content"]/ul/li[27]/a
 ${Search_números_inputs}                //*[@id="content"]/div/div/div/input
+${Opção_jquery_ui_menus}                //*[@id="content"]/ul/li[28]/a
+${Enabled_jquery_ui_menus}              //*[@id="ui-id-2"]
+${Downloads_jquery_ui_menu}             //*[@id="ui-id-4"]
+${PDF_jquery_ui_menu}                   //*[@id="menu"]/li[2]/ul/li[1]/ul/li[1]
+${CSV_jquery_ui_menu}                   //*[@id="menu"]/li[2]/ul/li[1]/ul/li[2]
+${Excel_jquery_ui_menu}                 //*[@id="menu"]/li[2]/ul/li[1]/ul/li[3]
+${Voltar_menu_jquery_ui_menu}           //*[@id="ui-id-5"]
+${Opção_javascript_alerts}              //*[@id="content"]/ul/li[29]/a
+${Botão_js_alert}                       //*[@id="content"]/div/ul/li[1]/button
+${Mensagem_sucesso}                     //*[@id="result"]
+${Botão_clickofjsconfirm}               //*[@id="content"]/div/ul/li[2]/button
+${Opção_JavaScript_onload_event_error}    //*[@id="content"]/ul/li[30]/a    
+${Mensagem_erro_JavaScript_onload_event_error}    /html/body/p
+${Opção_key_presses}                              //*[@id="content"]/ul/li[31]/a
+${Search_key_presses}                             //*[@id="target"]
+${Digitação_key_presses}                          //*[@id="result"]
+${Opção_Large_&_Deep_DOM}                         //*[@id="content"]/ul/li[32]/a
+${No_Siblings}                                    //*[@id="no-siblings"]
+${Siblings}                                       //*[@id="sibling-1.1"]
+${Table_large_&_deep_dom}                         //*[@id="large-table"]
+${Opção_multiple_windows}                         //*[@id="content"]/ul/li[33]/a
+${Link_multiple_windows}                          //*[@id="content"]/div/a
+${Outra_página_multiple_windows}                  /html/body/div/h3
+${Opção_nested_frames}                            //*[@id="content"]/ul/li[34]/a
+${Left_nested_frames}                             /html/frameset/frame[1]              
+${Middle_nested_frames}                           /html/frameset/frame[2]
+${Right_nested_frames}                            /html
+${Bottom_nested_frames}                           /html/frameset/frame[2]
+${Opção_notification_messages}                    //*[@id="content"]/ul/li[35]/a
+${Mensagem_notification_messages}                 //*[@id="flash"]       
+${Clickhere_notification_messages}                //*[@id="content"]/div/p/a
+${Opção_redirect_link}                            //*[@id="content"]/ul/li[36]/a
+${Here_redirect_link}                             //*[@id="redirect"]
+${200_redirect_link}                              //*[@id="content"]/div/ul/li[1]/a
+${301_redirect_link}                              //*[@id="content"]/div/ul/li[2]/a
+${404_redirect_link}                              //*[@id="content"]/div/ul/li[3]/a
+${500_redirect_link}                              //*[@id="content"]/div/ul/li[4]/a
+${Here_redirect_link2}                            //*[@id="content"]/div/p/a
+${Opção_shadow_dom}                               //*[@id="content"]/ul/li[38]/a
+${Texto1_shadow_dom}                              //*[@id="content"]/my-paragraph[1]/span
+${Texto2_shadow_dom}                              //*[@id="content"]/my-paragraph[2]/ul/li[2]
+${Opção_shifting_content}                         //*[@id="content"]/ul/li[39]/a
+${Exemplo_1_shifting_content}                     //*[@id="content"]/div/a[1]
 
 *** Keywords ***
 Abrir o navegador
@@ -566,3 +610,181 @@ E aparece a opção de colocar números
 Então colocar quantos números quiser   
     Input Password    ${Search_números_inputs}    l23
     
+Quando aperta na opção "JQueryUI-Menus"
+    Wait Until Element Is Visible    locator=xpath:${Opção_jquery_ui_menus}  
+    Click Link                       locator=xpath:${Opção_jquery_ui_menus}
+
+E clica na opção "Enabled"
+    Wait Until Element Is Visible    locator=xpath:${Enabled_jquery_ui_menus}  
+    Click Element                    locator=xpath:${Enabled_jquery_ui_menus}  
+
+E na opção "Downloads"
+    Wait Until Element Is Visible    locator=xpath:${Downloads_jquery_ui_menu} 
+    Click Element                    locator=xpath:${Downloads_jquery_ui_menu}
+
+# Então clica na opção "PDF"
+#     ${element_origem}    Wait Until Element Is Visible    ${Downloads_jquery_ui_menu}
+#     ${element_destino}   Wait Until Element Is Visible    ${PDF_jquery_ui_menu}
+#     Drag And Drop By Offset    ${element_origem}    ${element_destino}    100,50
+#     Click Element                   locator=xpath:${PDF_jquery_ui_menu}
+
+# E na opção "CSV"
+#     Wait Until Element Is Visible    locator=xpath:${CSV_jquery_ui_menu}  
+#     Click Element                    locator=xpath:${CSV_jquery_ui_menu}
+
+E na opção "Excel"
+    Wait Until Element Is Visible    locator=xpath:${Excel_jquery_ui_menu}  
+    Click Element                    locator=xpath:${Excel_jquery_ui_menu}
+
+E volta para o menu da JQueryUI-Menus
+    Wait Until Element Is Visible    locator=xpath:${Voltar_menu_jquery_ui_menu}   
+    Click Element                    locator=xpath:${Voltar_menu_jquery_ui_menu} 
+
+Quando aperta na opção "JavaScript Alerts"
+    Wait Until Element Is Visible    locator=xpath:${Opção_javascript_alerts}   
+    Click Element                    locator=xpath:${Opção_javascript_alerts} 
+
+Então clica na opção "Click for JS Alert"
+    Wait Until Element Is Visible    locator=xpath:${Botão_js_alert}   
+    Click Element                    locator=xpath:${Botão_js_alert}  
+    Alert Should Be Present          
+
+E deve aparecer uma mensagem de sucesso
+    Wait Until Element Is Visible    locator=xpath:${Mensagem_sucesso}    
+
+Então clica na opção "Click for JS Confirm"
+    Wait Until Element Is Visible    locator=xpath:${Botão_clickofjsconfirm}
+    Click Button                     locator=xpath:${Botão_clickofjsconfirm}
+    Handle Alert                     Accept
+
+E deve aparecer uma mensagem "OK"
+    Wait Until Element Is Visible    locator=xpath:${Mensagem_sucesso} 
+
+Quando aperta na opção "JavaScript onload event error"
+    Wait Until Element Is Visible    locator=xpath:${Opção_JavaScript_onload_event_error} 
+    Click Link                       locator=xpath:${Opção_JavaScript_onload_event_error} 
+
+Então deve ser redirecionado para uma página com uma frase de erro
+    Wait Until Element Is Visible    locator=xpath:${Mensagem_erro_JavaScript_onload_event_error}
+
+Quando aperta na opção "Key Presses"
+    Wait Until Element Is Visible    locator=xpath:${Opção_key_presses} 
+    Click Link                       locator=xpath:${Opção_key_presses}
+
+Então digita algo no search
+    Wait Until Element Is Visible    locator=xpath:${Search_key_presses}  
+    Click Element                    locator=xpath:${Search_key_presses} 
+    Input Text                       xpath:${Search_key_presses}     text=B
+
+E confere se está retornando oque está sendo digitado
+    Wait Until Element Is Visible    locator=xpath:${Digitação_key_presses} 
+
+Quando aperta na opção "Large & Deep DOM"
+    Wait Until Element Is Visible    locator=xpath:${Opção_Large_&_Deep_DOM}   
+    Click Link                       locator=xpath:${Opção_Large_&_Deep_DOM}   
+
+Então confere se tem "Sem irmãos"
+    Wait Until Element Is Visible    locator=xpath:${No_Siblings} 
+
+E "Irmãos"
+    Wait Until Element Is Visible    locator=xpath:${Siblings}  
+
+E "Mesa"
+    Wait Until Element Is Visible    locator=xpath:${Table_large_&_deep_dom}
+
+Quando aperta na opção "Multiple Windows"
+    Wait Until Element Is Visible    locator=xpath:${Opção_multiple_windows}   
+    Click Link                       locator=xpath:${Opção_multiple_windows}
+
+Então clica no Link
+    Wait Until Element Is Visible    locator=xpath:${Link_multiple_windows}    
+    Click Link                       locator=xpath:${Link_multiple_windows} 
+
+E confere se foi para outra janela 
+    Go To                            url=${URL3}     
+    Wait Until Element Is Visible    locator=xpath:${Outra_página_multiple_windows}   
+
+Quando aperta na opção "Nested Frames"
+    Wait Until Element Is Visible    locator=xpath:${Opção_nested_frames}
+    Click Link                       locator=xpath:${Opção_nested_frames}
+
+Então deve conter o quadrado "Left"
+    Wait Until Element Is Visible    locator=xpath:${Left_nested_frames}  
+
+E o quadrado "Middle"
+    Wait Until Element Is Visible    locator=xpath:${Middle_nested_frames} 
+
+E o quadrado "Right"
+    Wait Until Element Is Visible    locator=xpath:${Right_nested_frames}  
+
+E o quadrado "Bottom"
+    Wait Until Element Is Visible    locator=xpath:${Bottom_nested_frames}
+
+Quando aperta na opção "Notification Messages"
+    Wait Until Element Is Visible    locator=xpath:${Opção_notification_messages} 
+    Click Link                       locator=xpath:${Opção_notification_messages} 
+
+Então deve retorna uma mensagem
+    Wait Until Element Is Visible    locator=xpath:${Mensagem_notification_messages} 
+
+E se clicar no "Click here", deve retornar novamente a mensagem
+    Wait Until Element Is Visible    locator=xpath:${Clickhere_notification_messages} 
+    Click Link                       locator=xpath:${Clickhere_notification_messages} 
+    Wait Until Element Is Visible    locator=xpath:${Mensagem_notification_messages}
+
+Quando aperta na opção "Redirect Link"
+    Wait Until Element Is Visible    locator=xpath:${Opção_redirect_link}   
+    Click Link                       locator=xpath:${Opção_redirect_link}   
+
+E clica no "here"
+    Wait Until Element Is Visible    locator=xpath:${Here_redirect_link} 
+    Click Link                       locator=xpath:${Here_redirect_link} 
+
+Então clica na opção "200"
+    Wait Until Element Is Visible    locator=xpath:${200_redirect_link}  
+    Click Link                       locator=xpath:${200_redirect_link}  
+    Click Link                       locator=xpath:${Here_redirect_link2}
+
+E na opção "301"
+    Wait Until Element Is Visible    locator=xpath:${301_redirect_link}  
+    Click Link                       locator=xpath:${301_redirect_link}  
+    Click Link                       locator=xpath:${Here_redirect_link2}
+
+E na opção "404"
+    Wait Until Element Is Visible    locator=xpath:${404_redirect_link} 
+    Click Link                       locator=xpath:${404_redirect_link} 
+    Click Link                       locator=xpath:${Here_redirect_link2}
+
+E na opção "500"
+    Wait Until Element Is Visible    locator=xpath:${500_redirect_link} 
+    Click Link                       locator=xpath:${500_redirect_link} 
+
+Quando aperta na opção "Shadow DOM"
+    Wait Until Element Is Visible    locator=xpath:${Opção_shadow_dom}      
+    Click Link                       locator=xpath:${Opção_shadow_dom}     
+
+Então deve conter o texto "Let's have some different text!"
+    Wait Until Element Is Visible    locator=xpath:${Texto1_shadow_dom}  
+
+E o texto "Let's have some different text! In a list!"
+    Wait Until Element Is Visible    locator=xpath:${Texto2_shadow_dom} 
+
+Quando aperta na opção "Shifting Conten"
+    Wait Until Element Is Visible    locator=xpath:${Opção_shifting_content}      
+    Click Link                       locator=xpath:${Opção_shifting_content}
+
+E clica no exemplo 1
+    Wait Until Element Is Visible    locator=xpath:${Exemplo_1_shifting_content}     
+    Click Link                       locator=xpath:${Exemplo_1_shifting_content}
+
+E deve ser retornada uma lista
+    Wait Until Element Is Visible    locator=xpath:${Opção_shadow_dom}      
+    Click Link                       locator=xpath:${Opção_shadow_dom}
+
+Então clica no "click here"
+    Wait Until Element Is Visible    locator=xpath:${Opção_shadow_dom}      
+    Click Link                       locator=xpath:${Opção_shadow_dom}
+
+E deve sumir 1 elemento em alguma recarregada de página
+    Wait Until Element Is Visible    locator=xpath:${Opção_shadow_dom}      
+    Click Link                       locator=xpath:${Opção_shadow_dom}
